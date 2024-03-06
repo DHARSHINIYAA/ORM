@@ -24,16 +24,26 @@ Execute Django admin and create details for 10 books
 
 ## PROGRAM
 ```
-from django.db import models
+models.py
+
+from django.db import models 
 from django.contrib import admin
+
 class lib_DB(models.Model):
-    bookno=models.IntegerField(primary_key="bookno"); 
-    bookname=models.CharField(max_length=50);
-    author=models.CharField(max_length=20);
-    genre=models.CharField(max_length=50);
-    edition=models.IntegerField(max_length=5);
+       bookno=models.IntegerField(primary_key="bookno"); 
+       bookname=models.CharField(max_length=50);
+       author=models.CharField(max_length=20);
+       genre=models.CharField(max_length=50);
+       edition=models.IntegerField(max_length=5);
+
 class lib_DBAdmin(admin.ModelAdmin):
-    list_display=("bookno","bookname","author","genre","edition");
+      list_display=("bookno","bookname","author","genre","edition");
+
+admin.py
+
+from django.contrib import admin
+from .models lib_DB,lib_DBAdmin
+admin.site.register(lib_DB,lib_DBAdmin )
 ```
 
 Include your code here
